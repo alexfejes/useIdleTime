@@ -1,8 +1,6 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 
-type Task = { id: number; title: string; done: boolean }
-
-const INITIAL_TASKS: Task[] = [
+const INITIAL_TASKS = [
   { id: 1, title: 'Review pull request for checkout flow', done: false },
   { id: 2, title: 'Update Q4 roadmap doc', done: false },
   { id: 3, title: 'Reply to design feedback thread', done: true },
@@ -21,7 +19,7 @@ const TEAM = [
   { name: 'Marcus Lee', role: 'Backend', status: 'away' },
   { name: 'Sofia Ruiz', role: 'Design', status: 'active' },
   { name: 'Tom Becker', role: 'QA', status: 'offline' },
-] as const
+]
 
 const STATUS_LABELS = { active: 'Active', away: 'Away', offline: 'Offline' }
 
@@ -31,12 +29,12 @@ export function Dashboard() {
 
   const remaining = tasks.filter((task) => !task.done).length
 
-  const toggleTask = (id: number) =>
+  const toggleTask = (id) =>
     setTasks((prev) =>
       prev.map((task) => (task.id === id ? { ...task, done: !task.done } : task)),
     )
 
-  const addTask = (event: FormEvent) => {
+  const addTask = (event) => {
     event.preventDefault()
     const title = draft.trim()
     if (!title) return

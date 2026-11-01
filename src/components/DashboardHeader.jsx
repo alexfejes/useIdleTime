@@ -1,20 +1,18 @@
 // FIX (step 2a): import the hook.
 // import { useIdleTimer } from '../hooks/useIdleTimer'
 
-type Status = 'active' | 'away'
-
-const BADGES: Record<Status, { label: string; className: string }> = {
+const BADGES = {
   active: { label: 'Active', className: 'status-badge status-badge--active' },
   away: { label: 'Away (Idle)', className: 'status-badge status-badge--away' },
 }
 
 export function DashboardHeader() {
   // BUG: the status is hardcoded, so the badge is stuck on "Active" forever.
-  const status: Status = 'active'
+  const status = 'active'
 
   // FIX (step 2b): delete the hardcoded line above and get the status from the hook.
   // const isIdle = useIdleTimer() // defaults to 5 seconds
-  // const status: Status = isIdle ? 'away' : 'active'
+  // const status = isIdle ? 'away' : 'active'
 
   const badge = BADGES[status]
 
