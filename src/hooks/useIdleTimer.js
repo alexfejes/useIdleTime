@@ -27,27 +27,27 @@
 
 // FIX (step 1): uncomment the hook below (select it and press Ctrl+/).
 
-// import { useState, useEffect } from 'react';
-//
-// export function useIdleTimer(timeout = 5000) {
-//   const [isIdle, setIsIdle] = useState(false);
-//
-//   useEffect(() => {
-//     let timer = 0;
-//     const handleActivity = () => {
-//       setIsIdle(false);
-//       clearTimeout(timer);
-//       timer = setTimeout(() => setIsIdle(true), timeout);
-//     };
-//
-//     window.addEventListener('mousemove', handleActivity);
-//     handleActivity();
-//
-//     return () => {
-//       window.removeEventListener('mousemove', handleActivity);
-//       clearTimeout(timer);
-//     };
-//   }, [timeout]);
-//
-//   return isIdle;
-// }
+import { useState, useEffect } from 'react';
+
+export function useIdleTimer(timeout = 5000) {
+  const [isIdle, setIsIdle] = useState(false);
+
+  useEffect(() => {
+    let timer = 0;
+    const handleActivity = () => {
+      setIsIdle(false);
+      clearTimeout(timer);
+      timer = setTimeout(() => setIsIdle(true), timeout);
+    };
+
+    window.addEventListener('mousemove', handleActivity);
+    handleActivity();
+
+    return () => {
+      window.removeEventListener('mousemove', handleActivity);
+      clearTimeout(timer);
+    };
+  }, [timeout]);
+
+  return isIdle;
+}

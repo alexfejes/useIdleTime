@@ -15,10 +15,10 @@ const SCHEDULE = [
 ]
 
 const TEAM = [
-  { name: 'Priya Shah', role: 'Frontend', status: 'active' },
-  { name: 'Marcus Lee', role: 'Backend', status: 'away' },
-  { name: 'Sofia Ruiz', role: 'Design', status: 'active' },
-  { name: 'Tom Becker', role: 'QA', status: 'offline' },
+  { name: 'Frontend Developer', role: 'Web', status: 'active' },
+  { name: 'Backend Developer', role: 'API', status: 'away' },
+  { name: 'Product Designer', role: 'Design', status: 'active' },
+  { name: 'QA Engineer', role: 'Testing', status: 'offline' },
 ]
 
 const STATUS_LABELS = { active: 'Active', away: 'Away', offline: 'Offline' }
